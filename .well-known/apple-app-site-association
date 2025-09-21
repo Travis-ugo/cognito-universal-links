@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "8D26Y9S2HV.im.pencil.cognito",
+        "appID": "8D26Y9S2HV.com.devdactic.deeplinks",
         "paths": [
           "/callback*",
           "/auth/*",
@@ -14,7 +14,7 @@
   },
   "webcredentials": {
     "apps": [
-      "8D26Y9S2HV.im.pencil.cognito"
+      "8D26Y9S2HV.com.devdactic.deeplinks"
     ]
   }
 }
