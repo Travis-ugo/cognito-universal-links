@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognito App Universal Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .link-button {
+            display: inline-block;
+            background: #007AFF;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .link-button:hover {
+            background: #0056D3;
+        }
+        .code {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cognito App Universal Links</h1>
+    <p>This page hosts Universal Links for the Cognito iOS app.</p>
+
+    <h2>Test Universal Links</h2>
+    <p>Click these links to test Universal Links functionality:</p>
+
+    <a href="/callback?code=test123&state=teststate" class="link-button">
+        Test OAuth Callback
+    </a>
+
+    <a href="/auth/login" class="link-button">
+        Test Auth Login
+    </a>
+
+    <h2>For Developers</h2>
+    <p>The apple-app-site-association file is available at:</p>
+    <div class="code">/.well-known/apple-app-site-association</div>
+
+    <p>If the app is not installed, you'll stay on this website. If it is installed, the app will open.</p>
+
+    <h2>Callback Handler</h2>
+    <script>
+        // Handle callback parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const state = urlParams.get('state');
+
+        if (code || state) {
+            document.body.innerHTML += `
+                <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h3>OAuth Callback Received</h3>
+                    <p><strong>Code:</strong> ${code || 'N/A'}</p>
+                    <p><strong>State:</strong> ${state || 'N/A'}</p>
+                    <p>This would normally be handled by your app!</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
